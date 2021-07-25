@@ -35,7 +35,7 @@ button {
   cursor: pointer;
 }
 button:hover {
-  color: red;
+  color: steelblue;
   border-color: #fff;
 }
 .content {

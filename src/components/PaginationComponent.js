@@ -7,19 +7,19 @@ export default function MyPagination(props) {
   React.useEffect(() => {
     var totalPages = parseInt(props.totalPages);
     var currentPage = parseInt(props.currentPage);
-    var pageArr = [];
+    var pageArray1 = [];
     if (totalPages > 1) {
       if (totalPages <= 9) {
         var i = 1;
         while (i <= totalPages) {
-          pageArr.push(i);
+          pageArray1.push(i);
           i++;
         }
       } else {
         if (currentPage <= 5)
-          pageArr = [1, 2, 3, 4, 5, 6, 7, 8, "", totalPages];
+          pageArray1 = [1, 2, 3, 4, 5, 6, 7, 8, "", totalPages];
         else if (totalPages - currentPage <= 4)
-          pageArr = [
+          pageArray1 = [
             1,
             "",
             totalPages - 7,
@@ -32,7 +32,7 @@ export default function MyPagination(props) {
             totalPages,
           ];
         else
-          pageArr = [
+          pageArray1 = [
             1,
             "",
             currentPage - 3,
@@ -47,7 +47,7 @@ export default function MyPagination(props) {
           ];
       }
     }
-    setPageArray(pageArr);
+    setPageArray(pageArray1);
   }, []);
 
   return (
