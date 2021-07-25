@@ -1,33 +1,47 @@
 import React from "react";
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import { QueryClient, QueryClientProvider } from "react-query";
 import Person from "./person";
+import MyPagination from "./PaginationComponent";
 
 //Create a client
 const queryClient = new QueryClient();
 
-//Fetch data from api
-const fetchPeople = async () => {
-  const res = await fetch(`http://swapi.dev/api/people/`);
-  return res.json();
-};
-
 //Queries
 const People = () => {
-  const { data, status } = useQuery(["people"], fetchPeople);
-  console.log(data);
+  const [personList, setTagList] = React.useState([]);
+  const [currPage, setCurrPage] = React.useState(3);
 
+  React.useEffect(() => {
+    afterPageClicked(3);
+  }, []);
+
+  //Fetch data from api
+  const afterPageClicked = (page_number) => {
+    setCurrPage(page_number);
+    fetch(`https://dummyapi.io/data/api/user?limit=10&page=${page_number}`, {
+      headers: {
+        "app-id": "60fd71a2eafc502a65501c4d",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setTagList(data.data));
+  };
   return (
     <div>
-      {/* <p>{status}</p> */}
-      {status === "loading" && <div>loading data..</div>}
-      {status === "error" && <div>Error fetching data</div>}
-      {status === "success" && (
-        <div>
-          {data.results.map((person) => (
-            <Person key={person.name} person={person} />
-          ))}
-        </div>
-      )}
+      <MyPagination
+        totalPages={10}
+        currentPage={currPage}
+        pageClicked={(element) => {
+          afterPageClicked(element);
+        }}
+      >
+        <ul>
+          {personList.map((person) => {
+            console.log(person);
+            return <Person key={person.id} person={person} />;
+          })}
+        </ul>
+      </MyPagination>
     </div>
   );
 };

@@ -11,9 +11,7 @@ function App() {
     <>
       <div className="App">
         <Navbar />
-        <div className="content">
-          <People />
-        </div>
+        <People />
       </div>
       <QueryClientProvider client={queryClient}>
         {/* The rest of your application */}

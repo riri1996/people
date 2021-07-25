@@ -8,7 +8,7 @@ body {
 .App {
   width: 960px;
   margin: 0 auto;
-  background-color: burlywood;
+  background-color: rgb(190, 187, 187);
 }
 h1 {
   color: #ffff57;
@@ -16,13 +16,21 @@ h1 {
   letter-spacing: 2px;
 }
 
+ul {
+  padding: 0px 32px 0px 32px;
+}
+
+ul li {
+  padding-bottom: 15px;
+}
+
 button {
   margin: 0 10px;
-  background: darkgray;
+  background: rgb(75, 75, 75);
   border: 3px solid #ccc;
   border-radius: 20px;
   padding: 10px;
-  color: black;
+  color: white;
   font-size: 1.2em;
   cursor: pointer;
 }
@@ -34,11 +42,9 @@ button:hover {
   text-align: left;
 }
 .accordion {
-  padding-left: 1em;
-  padding-right: 1em;
-  padding-bottom: 0.3em;
-  padding-top: 0.5em;
-  background-color: burlywood;
+  padding: 0.4em 0.4em 0.4em 0.4em;
+  background-color: steelblue;
+  border-radius: 9px;
 }
 
 .Accordion.Header {
@@ -48,7 +54,10 @@ button:hover {
 }
 
 .card {
+  background-color: rgb(190, 187, 187) !important;
   border-radius: 0px !important;
+  border: none !important;
+  margin-bottom: 5px;
 }
 
 .Search {

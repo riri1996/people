@@ -8,13 +8,37 @@ const Person = ({ person, index }) => {
       <Card>
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey={index}>
-            <Accordion.Header> {person.name}</Accordion.Header>
+            <Accordion.Header> {person.firstName}</Accordion.Header>
             <Accordion.Body>
               <ul>
-                <li>Name- {person.name}</li>
-                <li>Gender- {person.gender}</li>
-                <li>Date of birth- {person.birth_year}</li>
+                <li>Title- {person.title}</li>
+                <li>First Name- {person.firstName}</li>
+                <li>Last Name- {person.lastName}</li>
+                <li>Id- {person.id}</li>
+                <li>Email- {person.email}</li>
               </ul>
+              <table style={{ border: "2px solid black", width: "100%" }}>
+                <tr>
+                  <td
+                    style={{
+                      width: "30%",
+                      border: "1px solid black",
+                    }}
+                  >
+                    <b>Title</b>
+                  </td>
+                  <td style={{ width: "70%" }}>{person.title}</td>
+                </tr>
+
+                <tr>
+                  <td style={{ width: "30%", border: "1px solid black" }}>
+                    <b>First Name</b>
+                  </td>
+                  <td style={{ width: "70%", border: "1px solid black" }}>
+                    {person.firstName}
+                  </td>
+                </tr>
+              </table>
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
